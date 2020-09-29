@@ -15,70 +15,67 @@ using namespace std;
 
 
 
+class CLectorOff {
+private:
+	string file;
+	//numero de vertices 
+	int nv;
+	//numero de caras 
+	int nc;
+	//numero de aristas
+	int nn;
+	vector<float> _x;
+	vector<float> _y;
+	vector<float> _z;
+	vector<float> _v1;
+	vector<float> _v2;
+	vector<float> _v3;
+	vector<float> _n3;
+public:
+	CLectorOff(string file) : nv(0), nc(0), nn(0), file(file) { }
+	~CLectorOff() { ; }
+	void LeerArchivo() {
+		// variables auxiliares
+		string numVer, numCar, numNose, x, y, z, v1, v2, v3, n3;
+		ifstream coeff(file);
+		if (coeff.is_open())
+		{
+			//ignnorar
+			string line;
+			getline(coeff, line);
 
-//numero de vertices 
-int nv = 0;
+			//segunda linea
+			getline(coeff, numVer, ' ');
+			nv = stof(numVer);
+			getline(coeff, numCar, ' ');
+			nc = stof(numCar);
+			getline(coeff, numNose, '\n');
+			nn = stof(numNose);
 
-//numero de caras 
-int nc = 0;
+			for (int i = 0; i < nv; i++) {
+				getline(coeff, x, ' ');
+				_x.push_back(stof(x) / 10);
+				getline(coeff, y, ' ');
+				_y.push_back(stof(y) / 10);
+				getline(coeff, z, '\n');
+				_z.push_back(stof(z) / 10);
+			}
 
-int nn = 0;
-
-
-vector<float> _x;
-vector<float> _y;
-vector<float> _z;
-vector<float> _v1;
-vector<float> _v2;
-vector<float> _v3;
-vector<float> _n3;
-
-void LeerArchivo() {
-	// variables
-	string numVer, numCar, numNose, x, y, z, v1, v2, v3, n3;
-
-	ifstream coeff("cubo3.off");
-	if (coeff.is_open())
-	{
-		//ignnorar
-		string line;
-		getline(coeff, line);
-
-		//segunda linea
-		getline(coeff, numVer, ' ');
-		nv = stof(numVer);
-		getline(coeff, numCar, ' ');
-		nc = stof(numCar);
-		getline(coeff, numNose, '\n');
-		nn = stof(numNose);
-
-		for (int i = 0; i < nv; i++) {
-			getline(coeff, x, ' ');
-			_x.push_back(stof(x)/3);
-			getline(coeff, y, ' ');
-			_y.push_back(stof(y)/3);
-			getline(coeff, z, '\n' );
-			_z.push_back(stof(z)/3);
+			for (int i = 0; i < nc; i++) {
+				getline(coeff, n3, ' ');
+				_n3.push_back(stof(n3));
+				getline(coeff, v1, ' ');
+				_v1.push_back(stof(v1));
+				getline(coeff, v2, ' ');
+				_v2.push_back(stof(v2));
+				getline(coeff, v3, '\n');
+				_v3.push_back(stof(v3));
+			}
+			coeff.close();
 		}
-
-		for (int i = 0; i < nc; i++) {
-			getline(coeff, n3, ' ');
-			_n3.push_back(stof(n3));
-			getline(coeff, v1, ' ');
-			_v1.push_back(stof(v1));
-			getline(coeff, v2, ' ');
-			_v2.push_back(stof(v2));
-			getline(coeff, v3, '\n');
-			_v3.push_back(stof(v3));
-		}
-
-		coeff.close();
-
+		else cout << "Unable to open file";
 	}
-	else cout << "Unable to open file";
-}
-
-
+};
 
 void framebuffer_tamanho_callback(GLFWwindow* ventana, int ancho, int alto) {
 	glViewport(0, 0, ancho, alto);
@@ -205,9 +202,8 @@ int main() {
 	}
 
 	CProgramaShaders programa_shaders = CProgramaShaders("GLSL/codigo.vs", "GLSL/codigo.fs");
-
-
-	LeerArchivo();
+	CLectorOff readFile = CLectorOff("avion.off");
+	readFile.LeerArchivo();
 
 	float vertices[100000] = {
 
