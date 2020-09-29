@@ -1,0 +1,2 @@
+D:\Computación Gráfica\Projectos\Project1\x64\Debug\Project1.exe
+D:\Computación Gráfica\Projectos\Project1\x64\Debug\Project1.pdb
