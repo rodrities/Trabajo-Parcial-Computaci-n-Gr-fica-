@@ -1,21 +1,21 @@
 ﻿  main.cpp
-D:\Computación Gráfica\Projectos\Project1\main.cpp(48,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-D:\Computación Gráfica\Projectos\Project1\main.cpp(50,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-D:\Computación Gráfica\Projectos\Project1\main.cpp(52,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-D:\Computación Gráfica\Projectos\Project1\main.cpp(242,24): warning C4244: '=': conversión de '_Ty' a 'unsigned int'; posible pérdida de datos
+D:\Computación Gráfica\Parcial\Trabajo-Parcial-Computaci-n-Gr-fica--master\Project1\main.cpp(49,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+D:\Computación Gráfica\Parcial\Trabajo-Parcial-Computaci-n-Gr-fica--master\Project1\main.cpp(51,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+D:\Computación Gráfica\Parcial\Trabajo-Parcial-Computaci-n-Gr-fica--master\Project1\main.cpp(53,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+D:\Computación Gráfica\Parcial\Trabajo-Parcial-Computaci-n-Gr-fica--master\Project1\main.cpp(231,23): warning C4305: '=': truncamiento de 'double' a 'float'
+D:\Computación Gráfica\Parcial\Trabajo-Parcial-Computaci-n-Gr-fica--master\Project1\main.cpp(243,24): warning C4244: '=': conversión de '_Ty' a 'unsigned int'; posible pérdida de datos
           with
           [
               _Ty=float
           ]
-D:\Computación Gráfica\Projectos\Project1\main.cpp(244,24): warning C4244: '=': conversión de '_Ty' a 'unsigned int'; posible pérdida de datos
+D:\Computación Gráfica\Parcial\Trabajo-Parcial-Computaci-n-Gr-fica--master\Project1\main.cpp(245,24): warning C4244: '=': conversión de '_Ty' a 'unsigned int'; posible pérdida de datos
           with
           [
               _Ty=float
           ]
-D:\Computación Gráfica\Projectos\Project1\main.cpp(246,24): warning C4244: '=': conversión de '_Ty' a 'unsigned int'; posible pérdida de datos
+D:\Computación Gráfica\Parcial\Trabajo-Parcial-Computaci-n-Gr-fica--master\Project1\main.cpp(247,24): warning C4244: '=': conversión de '_Ty' a 'unsigned int'; posible pérdida de datos
           with
           [
               _Ty=float
           ]
-LINK : warning LNK4098: la biblioteca predeterminada'MSVCRT' entra en conflicto con otras bibliotecas; use la biblioteca /NODEFAULTLIB:biblioteca
-  Project1.vcxproj -> D:\Computación Gráfica\Projectos\Project1\x64\Debug\Project1.exe
+  Project1.vcxproj -> D:\Computación Gráfica\Parcial\Trabajo-Parcial-Computaci-n-Gr-fica--master\Project1\x64\Debug\Project1.exe
