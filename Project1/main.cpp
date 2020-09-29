@@ -24,6 +24,7 @@ int nc = 0;
 
 int nn = 0;
 
+
 vector<float> _x;
 vector<float> _y;
 vector<float> _z;
@@ -36,7 +37,7 @@ void LeerArchivo() {
 	// variables
 	string numVer, numCar, numNose, x, y, z, v1, v2, v3, n3;
 
-	ifstream coeff("avion.off");
+	ifstream coeff("cubo3.off");
 	if (coeff.is_open())
 	{
 		//ignnorar
@@ -53,11 +54,11 @@ void LeerArchivo() {
 
 		for (int i = 0; i < nv; i++) {
 			getline(coeff, x, ' ');
-			_x.push_back(stof(x)/10);
+			_x.push_back(stof(x)/3);
 			getline(coeff, y, ' ');
-			_y.push_back(stof(y)/10);
-			getline(coeff, z, '\n');
-			_z.push_back(stof(z)/10);
+			_y.push_back(stof(y)/3);
+			getline(coeff, z, '\n' );
+			_z.push_back(stof(z)/3);
 		}
 
 		for (int i = 0; i < nc; i++) {
@@ -248,6 +249,14 @@ int main() {
 
 	}
 
+	//Para leer sin indices
+	if (nc == 0)
+	{
+		for (int i = 0; i < nv; i++)
+		{
+			indices[i] = i;
+		}
+	}
 
 	//Enviando la geometrÃ­a al GPU: Definiendo los buffers (Vertex Array Objects y Vertex Buffer Objects)
 	unsigned int id_array_vertices, id_array_buffers, id_element_buffer;
@@ -293,7 +302,7 @@ int main() {
 		glBindVertexArray(id_array_vertices);
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, id_element_buffer);
 		//glDrawArrays(GL_TRIANGLES, 0, 6);
-		glDrawElements(GL_TRIANGLES, nc*3 , GL_UNSIGNED_INT, 0);
+		glDrawElements(GL_TRIANGLES, nv , GL_UNSIGNED_INT, 0);
 
 		glfwSwapBuffers(ventana);
 		glfwPollEvents();
